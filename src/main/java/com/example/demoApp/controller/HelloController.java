@@ -1,14 +1,14 @@
 package com.example.demoApp.controller;
-
+import com.example.demoApp.model.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
-    @GetMapping("/param/{name}")
-    public String getMessage(@PathVariable String name){
+    @PostMapping("/post")
+    public String getMessage(@RequestBody User user){
 
-        return "Hello"+ name+ "!";
+        return "Hello"+ user.getFirstName()+" "+ user.getLastName();
     }
 }
 
