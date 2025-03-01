@@ -1,15 +1,12 @@
 package com.example.demoApp.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
-    @RequestMapping(value={"/query"},method= RequestMethod.GET)
-    public String getMessage(@RequestParam(value="name") String name){
+    @GetMapping("/param/{name}")
+    public String getMessage(@PathVariable String name){
 
         return "Hello"+ name+ "!";
     }
